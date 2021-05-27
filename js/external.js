@@ -34,3 +34,7 @@ alert("Payment for the week: " + ((400*6) + (380*4) + (350*10)));
 var full = confirm("Is the class full?");
 var conflict = confirm("Is there a conflict?");
 alert("You can enroll in class:" + (!full && !conflict));
+
+var items = confirm("Is the item more than 2 and not expired?");
+var members = confirm("Are you a premium member?");
+alert("Offer can be applied:" + (!items && !members));
