@@ -35,6 +35,7 @@ var full = confirm("Is the class full?");
 var conflict = confirm("Is there a conflict?");
 alert("You can enroll in class:" + (!full && !conflict));
 
-var items = confirm("Is the item more than 2 and not expired?");
-var members = confirm("Are you a premium member?");
-alert("Offer can be applied:" + (!items && !members));
+var premium = confirm("Are you a premium member");
+var quantity = Number(prompt("How many items did you buy"));
+var expired = confirm("Is the coupon expired");
+alert("You can get teh discount" + ((!expired) && < 2 ))
