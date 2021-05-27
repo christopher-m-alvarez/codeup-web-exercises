@@ -38,4 +38,4 @@ alert("You can enroll in class:" + (!full && !conflict));
 var premium = confirm("Are you a premium member");
 var quantity = Number(prompt("How many items did you buy"));
 var expired = confirm("Is the coupon expired");
-alert("You can get the discount" + ((!expired) && < 2 ))
+alert("You can get the discount" + ((!expired) && (premium || (quantity > 2 ))));
