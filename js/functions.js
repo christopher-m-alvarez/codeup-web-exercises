@@ -9,7 +9,7 @@
  */
 
 function sayHello(name) {
-    return "Hello, " + name;
+    return "Hello, " + name + "!";
 }
 
 /**
@@ -21,7 +21,6 @@ function sayHello(name) {
 
 //var name = "Summer";
 var helloMessage = sayHello("Chris");
-
 console.log(helloMessage);
 
 //alert(message)
