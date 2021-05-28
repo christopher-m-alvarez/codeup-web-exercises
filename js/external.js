@@ -16,7 +16,7 @@ var userInput = prompt('What is your favorite color?');
 
 alert("Great, "+ userInput + " is my favorite color too!");
 
-// Answer for exercise 3 #1 fro previous homework
+// Answer for exercise 3 #1 from previous homework
 //https://java.codeup.com/javascript-i/introduction/working-with-data-types-operators-and-variables/
 
 /*

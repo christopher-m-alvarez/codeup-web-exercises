@@ -40,7 +40,6 @@ console.log(sayHello(myName));
 var random = Math.floor((Math.random() * 3) + 1);
 
 /**
- * TODO:
  * Create a function called 'isTwo' that takes a number as a parameter.
  * The function should return a boolean value based on whether or not the passed
  * number is the number 2.
@@ -56,14 +55,17 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-function isTwo(){
-    var random = 2
-    return
+
+function isTwo(number){
+
+    return number == 2;
 }
-console.log()
+console.log(isTwo(1));
+console.log(isTwo(2));
+console.log(isTwo(3));
+console.log(isTwo(random));
 
 /**
- * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
  * restaurant. The function should accept a tip percentage and the total of the
  * bill, and return the amount to tip
@@ -73,9 +75,14 @@ console.log()
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
+
 function calculateTip (num1, num2) {
-    return num1 * num2; //num1 = percentage, num2 = total bill
+    var tip = num1 * num2;
+    return tip; //num1 = percentage, num2 = total bill
 }
+console.log(calculateTip(0.20, 20)); // returns 4);
+console.log(calculateTip(0.25, 25.50)); // returns 4);
+console.log(calculateTip(0.15, 33.42)); // returns 4);
 
 /**
  * TODO:
