@@ -123,14 +123,20 @@ console.log(calculateTotal(5, 100));
 
 
 /**
- * TODO:
+ *
  * Uncomment the line below to generate a random number between 0 and 6.
  * Prompt the user for their total bill, then use your `calculateTotal` function
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var totalBill = Number(prompt("What was the total bill?"));
+alert("Your total bill is: " + calculateTotal(luckyNumber, totalBill));
+alert("Your luck number is: " + luckyNumber);
+
+
 
 /**
  * TODO:
