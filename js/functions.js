@@ -92,7 +92,7 @@ console.log(calculateTip(0.15, 33.42)); // returns 4);
 
 var bill_total = Number(prompt("What is the bill total?"));
 var tip_percentage = Number(prompt("What percentage would you like to tip?"));
-alert(calculateTip(bill_total, tip_percentage/100));
+alert("The tip should be " + calculateTip(bill_total, tip_percentage/100));
 
 
 
