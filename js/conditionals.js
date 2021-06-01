@@ -133,8 +133,10 @@ console.log(calculateTotal(5, 100));
 var luckyNumber = Math.floor(Math.random() * 6);
 
 var totalBill = Number(prompt("What was the total bill?"));
-alert("Your total bill is: " + calculateTotal(luckyNumber, totalBill));
 alert("Your luck number is: " + luckyNumber);
+alert("Your price before the discount is: " + totalBill);
+alert("Your total bill is: " + calculateTotal(luckyNumber, totalBill));
+
 
 
 
