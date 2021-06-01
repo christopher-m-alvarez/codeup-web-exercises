@@ -3,7 +3,6 @@
 /* ########################################################################## */
 
 /**
- * TODO:
  * Create a function named `analyzeColor` that accepts a string that is a color
  * name as input. This function should return a message that related to that
  * color. Only worry about the colors defined below, if the color passed is not
@@ -19,20 +18,20 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
-function analyzeColor(colorName) {
-    if (colorName === "blue") {
-        return "blue is the color of the sky";
-    }
-    else if (colorName === "red") {
-        return "Strawberries are red";
-    }
-    else if (colorName === "cyan") {
-        return "I don't know anything about cyan";
-    }
-    else {
-        return "I don't know anything about you color " + colorName;
-    }
-}
+//function analyzeColor(colorName) {
+//    if (colorName === "blue") {
+//       return "blue is the color of the sky";
+//    }
+//    else if (colorName === "red") {
+//        return "Strawberries are red";
+//    }
+//    else if (colorName === "cyan") {
+//        return "I don't know anything about cyan";
+//    }
+//    else {
+//        return "I don't know anything about you color " + colorName;
+//    }
+//}
 
 
 // Don't change the next two lines!
@@ -46,23 +45,41 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
+
 console.log(analyzeColor(randomColor));
-/**
- * TODO:
- * Refactor your above function to use a switch-case statement
- */
 
 /**
- * TODO:
+ * Refactor your above function to use a switch-case statement
+ */
+function analyzeColor(colorName) {
+    switch (colorName) {
+        case "blue":
+            return "blue is the color of the sky";
+        case "red":
+            return "Strawberries are red";
+        case "cyan":
+            return "I don't anything about cyan";
+        default:
+            return "I don't know anything about your color " + colorName;
+    }
+}
+
+
+/**
+ *
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+var UserColor = prompt("What color?");
+alert(analyzeColor(UserColor));
+
+
 
 /* ########################################################################## */
 
 /**
- * TODO:
+ *
  * Suppose there's a promotion in Walmart, each customer is given a randomly
  * generated "lucky number" between 0 and 5. If your lucky number is 0 you have
  * no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
@@ -80,6 +97,30 @@ console.log(analyzeColor(randomColor));
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+
+function calculateTotal(luckyNumber, totalAmount){
+    switch (luckyNumber){
+        case 0:
+            return totalAmount;
+        case 1:
+            return totalAmount - (totalAmount * .10);
+        case 2:
+            return totalAmount - (totalAmount * .20);
+        case 3:
+            return totalAmount - (totalAmount * .35);
+        case 4:
+            return totalAmount - (totalAmount * .50);
+        case 5:
+            return 0;
+    }
+}
+console.log(calculateTotal(0, 100));
+console.log(calculateTotal(1, 100));
+console.log(calculateTotal(2, 100));
+console.log(calculateTotal(3, 100));
+console.log(calculateTotal(4, 100));
+console.log(calculateTotal(5, 100));
+
 
 /**
  * TODO:
