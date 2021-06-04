@@ -43,8 +43,14 @@
 //}
 //tree()
 
-var message = "";
-for (let index = 100; index >= 5; index = index - 5){
-    message = message + "index is: " + index + "\n";
-}
-alert(message)
+//var message = "";
+//for (let index = 100; index >= 5; index = index - 5){
+//    message = message + "index is: " + index + "\n";
+//}
+//alert(message)
+
+// same as above
+
+//for (let index = 100; index >= 5; index = index - 5){
+//    console.log(index);
+//}
