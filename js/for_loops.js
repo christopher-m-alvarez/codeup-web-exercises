@@ -8,20 +8,20 @@
 //
 //alert(showMultiplicationTable(7))
 
-function showMultiplicationTable() {
-
-    for (let y = 1; y <= 10; y++) {
-        var random = Math.ceil(Math.random() * (200 - 20) + 20);
-        if (random % 2 === 0)
-
-        {
-            console.log(random + " is even")
-        } else {
-            console.log(random + " is odd");
-        }
-    }
-}
-showMultiplicationTable();
+//function showMultiplicationTable() {
+//
+//    for (let y = 0; y < 10; y++) {
+//        var random = Math.ceil(Math.random() * (200 - 20) + 20);
+//        if (random % 2 === 0)
+//
+//        {
+//            console.log(random + " is even")
+//        } else {
+//            console.log(random + " is odd");
+//        }
+//    }
+//}
+//showMultiplicationTable();
 
 //#4 short way
 
