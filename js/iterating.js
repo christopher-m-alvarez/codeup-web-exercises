@@ -50,7 +50,7 @@
     });
 
     /**
-     * TODO:
+     *
      * Create the following three functions, each will accept an array and
      * return an an element from it
      * - first: returns the first item in the array
@@ -78,8 +78,6 @@
     console.log(first(["chris", "john", "smith", "antonio"]));
     console.log(second(["chris", "john", "smith", "antonio"]));
     console.log(last(["chris", "john", "smith", "antonio"]));
-
-
 
 
 
