@@ -53,14 +53,18 @@
         {name: 'George', amount: 320}
     ];
     shoppers.forEach(function(shopper){
-        if (shoppers <= 200)
-            console.log(shopper.name + " owes: $" + shopper.amount);
+        if (shopper.amount <= 200) {
+            //discount = 0
+            let amount = shoppers.amount;
+            console.log(shopper + " owes: $" + amount.toFixed(2));
+        }
+
         else{
-        let discount = shopper.amount * .12;
-        let total = shopper.amount - discount;
-        console.log(shopper.name + " gets a discount of $ " + discount + " owes: $" + total);
+            let discount = shopper.amount * .12;
+            let amount = shopper.amount - discount;
+            console.log(shopper.name + " gets a discount of $ " + discount.toFixed(2) + " owes: $" + amount.toFixed(2));
     }
-});
+    });
 
 
 
