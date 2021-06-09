@@ -181,4 +181,21 @@
      *   `showBookInfo` function.
      */
 
+    function createBook(title, author){
+        let name = author.split(" ");
+        console.log(name[0])
+        console.log(name[1])
+        let firstName = "first";
+        let lastName = "last";
+        return {
+            title : title,
+            author : {
+                firstName : firstName,
+                lastName : lastName
+            }
+        }
+    }
+
+    console.log(createBook("1984", "George Orwell"));
+
 })();
