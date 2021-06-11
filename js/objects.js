@@ -67,6 +67,19 @@
         // output the data
     });
 
+    /*
+    // for each
+    shoppers.forEach(function (shopper) {
+        let message = shopper.name + " spent: " + shopper.amount;
+        if (shopper.amount > 200) {
+            message = message + " gets a 12% discount and owes: $" + (shopper.amount - (shopper.amount * .12));
+        } else {
+            message = message + " and owes $" + shopper.amount;
+        }
+        console.log(message);
+    })
+    */
+
 
 
 
