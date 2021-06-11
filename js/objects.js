@@ -52,18 +52,19 @@
         {name: 'Ryan', amount: 250},
         {name: 'George', amount: 320}
     ];
-    shoppers.forEach(function(shopper){
-        if (shopper.amount <= 200) {
-            //discount = 0
-            let amount = shoppers.amount;
-            console.log(shopper + " owes: $" + amount.toFixed(2));
-        }
 
-        else{
+    shoppers.forEach ( function (shopper) {
+        if (shopper.amount <= 200) {
+            let amount = shopper.amount;
+            console.log(shopper.name + " owes $" + amount.toFixed(2));
+
+        } else {
+            // calculate the discount
             let discount = shopper.amount * .12;
             let amount = shopper.amount - discount;
-            console.log(shopper.name + " gets a discount of $ " + discount.toFixed(2) + " owes: $" + amount.toFixed(2));
-    }
+            console.log(shopper.name + " spent $" + shopper.amount + " gets a discount of $" + discount.toFixed(2) + " and owes $" + amount.toFixed(2));
+        }
+        // output the data
     });
 
 
@@ -162,11 +163,30 @@
      *      ...
      */
 
-    for (var y= 0; y <= 4; y++)
-    {
-        console.log("Book # " + (y + 1) + "\n" + "Title: " + books[y].title + "\n" +
-            "Author: " + books[y].author.firstName + " " + books[y].author.lastName);
+    console.log("");
+    books.forEach( function (book,index) {
+        showBookInfo(book, index);
+    });
+
+    console.log(books);
+
+    function showBookInfo(book, index) {
+        console.log("Book #", index +1);
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---");
     }
+
+    /*
+    //for loop
+    for (let index = 0; index < books.length; index++) {
+        showBookInfo(books[index], index);
+        // console.log("Book # " + index);
+        // console.log("Title:" + books[index].title);
+        // console.log("Author:" + books[index].firstName + " " + books[index].lastName);
+        // console.log("---");
+    }
+    */
 
 
 
@@ -197,5 +217,33 @@
     }
 
     console.log(createBook("1984", "George Orwell"));
+
+    /*
+    //Createbook
+        function createBook(title, author) {
+        // handle the author -- split the string by the space
+        let temp = author.split(" ");
+        let firstName = temp[0];
+        let lastName = temp[1];
+        return {
+            title: title,
+            author: {
+                firstName: firstName,
+                lastName: lastName
+            }
+        };
+    }
+    /*
+    var bookTest = createBook("Discord's Apple", "Carrie Vaughn");
+    console.log(bookTest);
+    books.push(bookTest);
+    console.log(books);
+    function showBookInfo(book, number) {
+        console.log("Book # " + number);
+        console.log("Title:" + book.title);
+        console.log("Author:" + book.firstName + " " + books.lastName);
+        console.log("---");
+    }
+*/
 
 })();
