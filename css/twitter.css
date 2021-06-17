@@ -103,6 +103,7 @@ a {
     background-color: var(--light-bg);
     border-bottom: 1px var(--separator-color);
     padding: .5em;
+    margin: .1em;
     overflow: auto;
 }
 .btn {
