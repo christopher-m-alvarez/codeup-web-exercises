@@ -8,6 +8,7 @@
 * {
     box-sizing: border-box;
 }
+
 body, html {
     background-color: var(--main-bg);
     height: 100%;
@@ -31,6 +32,7 @@ a {
     width: 100%;
     z-index: 5000;
 }
+
 .nav {
     list-style-type: none;
     padding: 0;
@@ -48,16 +50,23 @@ a {
 .nav-link:hover {
     color: var(--link-color);
 }
+.profile-entry{
+    margin: .5em;
+}
 .profile {
     background: var(--light-bg);
     height: 80px;
 }
+.profile-items{
+    list-style: none;
+    padding: 0;
+}
 .profile-image{
     position: absolute;
-    top: 220px;
+    top: 250px;
 }
 .profile-form{
-    line-height: normal;
+    line-height: 5em;
 }
 .profile-details{
     float: left;
@@ -75,6 +84,26 @@ a {
     width: calc(25% - 1em);
     margin-left: .5em;
     margin-right: .5em;
+}
+.container{
+    margin: 2em;
+}
+.media-image{
+    width: 50px;
+    float: left;
+    margin-top: 1.33em;
+}
+.media-body{
+    float: left;
+    width: calc(100% - 50px);
+}
+.media{
+    width: 100%;
+    background-color: var(--light-bg);
+    border-bottom: 1px var(--separator-color);
+    padding: .5em;
+    margin: .1em;
+    overflow: auto;
 }
 .btn {
     border: 1px solid var(--main-link-color);
