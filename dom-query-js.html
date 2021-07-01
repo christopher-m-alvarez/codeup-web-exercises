@@ -44,16 +44,16 @@
             var listItems = document.getElementsByTagName("li");
 
         // TODO: Set text color on every other list item to grey
-            document.querySelectorAll('li:nth-child(odd)').forEach( e=> e.style.color = "gray");
+            document.querySelectorAll('li:nth-child(even)').forEach( e=> e.style.color = "gray");
 
         // TODO: Set text color of li with dbid = 1 to blue
             listItems[0].style.color = "blue"
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-            var subParagraphs = document.getElementsByClassName("sub-paragraph")[0];
+            var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-            subParagraphs.innerText = "Mission Accomplished!";
+            subParagraphs[0].innerText = "Mission Accomplished!";
     })();
 </script>
 </body>
