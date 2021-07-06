@@ -34,6 +34,7 @@
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
             mainHeader.innerHTML = "JavaScript is Cool";
 
+
         // TODO: Uncomment the next line and get the sub header element by id
             var subHeader = document.getElementById("sub-header");
 
@@ -54,7 +55,64 @@
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
             subParagraphs[0].innerText = "Mission Accomplished!";
+
     })();
 </script>
+
+<button id="btn1">Click Me!</button>
+<script>
+    var mainHeader = document.getElementById("main-header");
+    var listener1 = function (result) {
+        mainHeader.innerHTML = "JavaScript is Cool";
+    }
+    document.getElementById('btn1').addEventListener('click', listener1);
+</script>
+
+
+
+
+
+
+<button id="btn2">Click Me!</button>
+<script>
+    var subHeader = document.getElementById("sub-header");
+    var listener2 = function (result) {
+        subHeader.style.color = "blue";
+    }
+    document.getElementById('btn2').addEventListener('click', listener2);
+</script>
+
+
+
+
+
+
+<button id="btn3">Click Me!</button>
+<script>
+    var listener3 = function (result) {
+        document.querySelectorAll('li:nth-child(even)').forEach( e=> e.style.color = "gray");
+    }
+    document.getElementById('btn3').addEventListener('click', listener3);
+</script>
+
+
+
+
+
+
+<button id="btn4">Click Me!</button>
+<script>
+    var subParagraphs = document.getElementsByClassName("sub-paragraph")
+    var listener4 = function (result) {
+        subParagraphs[0].innerText = "Mission Accomplished!";
+    }
+    document.getElementById('btn4').addEventListener('click', listener4);
+</script>
+
+
+
+
+
+
 </body>
 </html>
