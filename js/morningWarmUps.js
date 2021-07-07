@@ -53,7 +53,7 @@ var personOne = {
 }
 
 personOne.getFullName = function(){
-    return personOne.firstName + " " + personOne.lastName
+    return this.firstName + " " + this.lastName
 }; console.log(personOne.sayHello());
 
 
