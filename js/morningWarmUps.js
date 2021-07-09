@@ -159,20 +159,3 @@ function getTallUsers (arrayUsers){
     }
     return tallUsers
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
