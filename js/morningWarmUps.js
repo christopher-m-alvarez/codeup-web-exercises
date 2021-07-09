@@ -140,7 +140,25 @@ var people = [personOne,personTwo,personThree];
 // ---- returns ----> [{firstName: "silvia", lastName: "floopertan", ageInYears: 34, heightInInches: 65},
 //
 
+function getTallUsers (arrayUsers){
 
+    var tallUsers = []
+
+    for (let i = 0; i < arrayUsers.length; i++){
+
+        var currentUser = arrayUsers[i].name
+
+        var currentUserHeight = (arrayUsers[i].heightInInches >= 65)
+
+        passingResults.push(
+            {
+                name: currentUser,
+                heightInInches: currentUserHeight
+            }
+        )
+    }
+    return tallUsers
+}
 
 
 
