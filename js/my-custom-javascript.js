@@ -75,9 +75,9 @@ document.addEventListener('keydown', function(e) {
 });
 
 function activateCheats() {
-    document.body.style.backgroundImage = '<img src="https://i.gifer.com/MZi7.gif">';
+    document.body.style.backgroundImage = "url('./img/MZi7.gif')";
 
-    var audio = new Audio('audio/pling.mp3');
+    var audio = new Audio('./img/codec.mp3');
     audio.play();
 
     alert("cheats activated");
