@@ -14,5 +14,5 @@
 // var contents = $("h1").html();
 // alert(contents);
 
-//Multiple Selectors
-$('.something, li').css('background-color', 'red');
+// //Multiple Selectors
+// $('h1, p, li').css('background-color', 'red');
