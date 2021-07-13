@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .gone{
+            visibility: hidden;
+        }
+        .highlight{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+<dl>
+    <dt>Name</dt>
+        <dd class="invisible">Godzilla</dd>
+    <dt>Born</dt>
+        <dd class="invisible">1952</dd>
+    <dt>Birthplace</dt>
+        <dd class="invisible">Japan</dd>
+    <dt>Color</dt>
+        <dd class="invisible">Green</dd>
+    <dt>Name</dt>
+        <dd class="invisible">Godzilla</dd>
+    <dt>Born</dt>
+        <dd class="invisible">1952</dd>
+    <dt>Birthplace</dt>
+        <dd class="invisible">Japan</dd>
+    <dt>Color</dt>
+        <dd class="invisible">Green</dd>
+    <dt>Birthplace</dt>
+        <dd class="invisible">Japan</dd>
+    <dt>Color</dt>
+        <dd class="invisible">Green</dd>
+</dl>
+
+<a href="#" id="toggle-button">Click to toggle visibility.</a>
+<br>
+
+<a href="#" id="toggle-button2">Click to highlight.</a>
+
+<script src="./js/jquery.js" ></script>
+
+<script>
+    "use strict"
+    $(document).ready(function() {
+        $("#toggle-button").click(function(event) {
+            event.preventDefault();
+            $('.invisible').toggleClass('gone');
+        });
+    });
+
+    $(document).ready(function() {
+        $("#toggle-button2").click(function(event) {
+            event.preventDefault();
+            $('dt').toggleClass('highlight');
+        });
+    });
+</script>
+</body>
+</html>
