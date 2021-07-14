@@ -40,10 +40,38 @@
         <dd class="invisible">Green</dd>
 </dl>
 
+
 <a href="#" id="toggle-button">Click to toggle visibility.</a>
 <br>
 
 <a href="#" id="toggle-button2">Click to highlight.</a>
+
+<h3 id="national-parks-heading">National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+</ul>
+
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+</ul>
+
+<h3>State Parks of Texas</h3>
+<ul id="parks">
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+
+<a href="#" id="toggle-button3">Click to highlight.</a>
+
 
 <script src="./js/jquery.js" ></script>
 
@@ -62,6 +90,29 @@
             $('dt').toggleClass('highlight');
         });
     });
+
+    $(document).ready(function() {
+        $("#toggle-button3").click(function(){
+            $("ul").each(function (){
+              $(this).children().last().css("background-color", "yellow")
+        });
+    });
+
+    });
+
+    $(document).ready(function() {
+        $("h3").click(function (){
+            $(this).next().children().css("font-weight", "bold");
+        })
+    });
+
+    $(document).ready(function(){
+        $("li").click(function(){
+            $(this).parent().children().first().css("color", "blue");
+        })
+    });
+
+
 </script>
 </body>
 </html>
