@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+<div id='map' style='width: 90vw; height: 90vh;'></div>
+<script src="js/keys.js"></script>
+<script src="mapbox-geocoder-utils.js"></script>
+
+<script>
+  var accessToken = mapboxAPIKey;
+
+  mapboxgl.accessToken = accessToken;
+
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom: 10,
+    center: [-98.4916, 29.4252]
+  });
+
+  var pluckersInfo = {
+    address: "14881 I-35 N, Selma, TX 78154",
+    popupHTML: "<p>The Plux</p>"
+  };
+
+  function placeMarkerAndPopup(info, token, map) {
+    geocode(info.address, token).then(function(coordinates) {
+      var popup = new mapboxgl.Popup()
+              .setHTML(info.popupHTML);
+      var marker = new mapboxgl.Marker()
+              .setLngLat(coordinates)
+              .addTo(map)
+              .setPopup(popup);
+      popup.addTo(map);
+    });
+  }
+
+  placeMarkerAndPopup(pluckersInfo, accessToken, map);
+
+  var maverickInfo = {
+      address: "6671 US-181, Floresville, TX 78114",
+      popupHTML: "<p>Maverick</p>"
+  };
+
+  function placeMarkerAndPopup2(info, token, map) {
+      geocode(info.address, token).then(function(coordinates) {
+          var popup = new mapboxgl.Popup()
+              .setHTML(info.popupHTML);
+          var marker = new mapboxgl.Marker()
+              .setLngLat(coordinates)
+              .addTo(map)
+              .setPopup(popup);
+          popup.addTo(map);
+      });
+  }
+
+  placeMarkerAndPopup2(maverickInfo, accessToken, map);
+
+
+  var phoHaLongInfo = {
+      address: "6424 Northwest Loop 410 #104, San Antonio, TX 78238",
+      popupHTML: "<p>Pho Ha Long</p>"
+  };
+
+  function placeMarkerAndPopup3(info, token, map) {
+      geocode(info.address, token).then(function(coordinates) {
+          var popup = new mapboxgl.Popup()
+              .setHTML(info.popupHTML);
+          var marker = new mapboxgl.Marker()
+              .setLngLat(coordinates)
+              .addTo(map)
+              .setPopup(popup);
+          popup.addTo(map);
+      });
+  }
+
+  placeMarkerAndPopup3(phoHaLongInfo, accessToken, map);
+
+  var noThanks = [
+      {
+          address: phoHaLongInfo.address,
+          popupHTML: phoHaLongInfo.popupHTML
+      },
+      {
+          address: pluckersInfo.address,
+          popupHTML: pluckersInfo.popupHTML
+      },
+      {
+          address: maverickInfo.address,
+          popupHTML: maverickInfo.popupHTML
+      },
+      ]
+
+
+</script>
+
+</body>
+</html>
