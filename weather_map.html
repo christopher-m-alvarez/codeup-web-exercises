@@ -6,81 +6,34 @@
     <title>Title</title>
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar  navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Weather App</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-        </ul>
-        <span class="navbar-text">
-      Navbar text with an inline element
-    </span>
-    </div>
+    <div>current city<p id="currentCity"> San Antonio</p></div>
 </nav>
 
-<div class="card-group">
-    <div class = "row">
-        <div class="col">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Monday</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-        </div>
-        <div class="col">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Tuesday</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-        </div>
-        <div class="col">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Wednesday</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-        </div>
-        <div class="col">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Thursday</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-        </div>
-        <div class="col">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-        </div>
+
+    <input id="city" placeholder="Search.." name="search">
+    <button id= "buttonCity"></button>
+
+
+<div id="five-day-forecast">
+    <div class="card-deck">
     </div>
 </div>
 
 <div id='map' style='width: 90vw; height: 90vh;'></div>
 
 
-<script src= "js/jquery.js"></script>
-<script src="js/keys.js"></script>
-<script src="mapbox-geocoder-utils.js"></script>
+<script src="./js/jquery.js"></script>
+<script src="./js/keys.js"></script>
+<script src="./js/mapbox-geocoder-utils.js"></script>
 
 <script>
     mapboxgl.accessToken = mapboxAPIKey;
@@ -88,31 +41,109 @@
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
-        center:[-98.4916, 29.4252]
+        center: [-98.4916, 29.4252]
     });
+
+    var anyCity = "";
+    $('#buttonCity').click(function (){
+        $('.card-deck').html("")
+        anyCity = document.getElementById('city').value
+        $("#currentCity").html(anyCity)
+        console.log(anyCity)
+
+
+        geocode(document.getElementById('city').value, mapboxAPIKey).then(function (value) {
+            map.flyTo({
+                center: [
+                    value[0],
+                    value[1]
+                ],
+                essential: true // this animation is considered essential with respect to prefers-reduced-motion
+            });
+
+            $.get(`https://api.openweathermap.org/data/2.5/onecall?`, {
+                appid: openWeatherAPIKey,
+                lat: value[1],
+                lon: value[0],
+                units: "imperial"
+            }).done(function (data) {
+                console.log(data);
+                var html = "";
+                $('#stuff1').empty();
+                data.daily.forEach(function (weather, index) {
+                    let day = new Date(data.daily[0].dt * 1000)
+                    console.log(day)
+                    if (index < 5) {
+                        html = `<div>
+            <div class="card">
+                <div class="card-header">
+                    `+ day.getMonth() + `/` +day.getDate() +`
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><p>Temperature is ${weather.temp.day}</p></li>
+                    <li class="list-group-item">humidity is ${weather.humidity}</li>
+                    <li class="list-group-item">${weather.pressure}</li>
+                    <li class="list-group-item">${weather.weather[0].description}</li>
+                </ul>
+            </div>
+        </div>`
+                        $('.card-deck').append(html)
+                    }
+                })
+            })
+        })
+
+    })
+
+
+
 
 
     "use strict"
     $(document).ready(function () {
 
+        function geocode(search, token) {
+            var baseUrl = 'https://api.mapbox.com';
+            var endPoint = '/geocoding/v5/mapbox.places/';
+            return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+                .then(function(res) {
+                    return res.json();
+                    // to get all the data from the request, comment out the following three lines...
+                }).then(function(data) {
+                    return data.features[0].center;
+                });
+        }
+
 
         $.get(`https://api.openweathermap.org/data/2.5/onecall?`, {
             appid: openWeatherAPIKey,
-            lat:  29.424349,
+            lat: 29.424349,
             lon: -98.491142,
             units: "imperial"
-        }).done(function(data) {
-            // let temperature = data.main.temp
-            // let humidity = data.main.humidity
-            // let wind = data.wind.speed
-            // let pressure = data.main.pressure
-            // let description = data.weather[0].description
-            //
-            // console.log("The temperature is " + temperature + " degrees!");
-            // console.log("The humidity is " + humidity + "%!");
-            // console.log("The wind speed is " + wind + "mph!");
-            // console.log("The wind pressure is " + pressure + "!");
-            // console.log(description)
+        }).done(function (data) {
+            console.log(data);
+            var html = "";
+            $('#stuff1').empty();
+            data.daily.forEach(function (weather, index) {
+                let day = new Date(data.daily[0].dt * 1000)
+                console.log(day)
+                if (index < 5) {
+                    html = `<div>
+            <div class="card">
+                <div class="card-header">
+                    `+ day.getMonth() + `/` +day.getDate() +`
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><p>Temperature is ${weather.temp.day}</p></li>
+                    <li class="list-group-item">humidity is ${weather.humidity}</li>
+                    <li class="list-group-item">${weather.pressure}</li>
+                    <li class="list-group-item">${weather.weather[0].description}</li>
+                </ul>
+            </div>
+        </div>`
+                    $('.card-deck').append(html)
+                }
+            })
         })
     })
 </script>
