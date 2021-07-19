@@ -13,14 +13,14 @@
 </head>
 <body>
 
-<nav class="navbar  navbar-expand-lg navbar-light bg-light">
+<nav class="navbar  navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Weather App</a>
     <div>current city<p id="currentCity"> San Antonio</p></div>
 </nav>
 
 
-    <input id="city" placeholder="Search.." name="search">
-    <button id= "buttonCity"></button>
+    <input id="city" placeholder="Enter City" name="search">
+    <button id= "buttonCity">search</button>
 
 
 <div id="five-day-forecast">
@@ -58,7 +58,7 @@
                     value[0],
                     value[1]
                 ],
-                essential: true // this animation is considered essential with respect to prefers-reduced-motion
+                essential: true
             });
 
             $.get(`https://api.openweathermap.org/data/2.5/onecall?`, {
@@ -69,7 +69,7 @@
             }).done(function (data) {
                 console.log(data);
                 var html = "";
-                $('#stuff1').empty();
+                $('').empty();
                 data.daily.forEach(function (weather, index) {
                     let day = new Date(data.daily[0].dt * 1000)
                     console.log(day)
@@ -77,13 +77,13 @@
                         html = `<div>
             <div class="card">
                 <div class="card-header">
-                    `+ day.getMonth() + `/` +day.getDate() +`
+                    `+ (day.getMonth() + 1) +`/` + day.getDate() +`
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><p>Temperature is ${weather.temp.day}</p></li>
-                    <li class="list-group-item">humidity is ${weather.humidity}</li>
-                    <li class="list-group-item">${weather.pressure}</li>
-                    <li class="list-group-item">${weather.weather[0].description}</li>
+                    <li class="list-group-item">Temperature: ${weather.temp.day}</li>
+                    <li class="list-group-item">Humidity: ${weather.humidity}</li>
+                    <li class="list-group-item">Wind: ${weather.pressure}</li>
+                    <li class="list-group-item">Pressure: ${weather.weather[0].description}</li>
                 </ul>
             </div>
         </div>`
@@ -134,10 +134,10 @@
                     `+ day.getMonth() + `/` +day.getDate() +`
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><p>Temperature is ${weather.temp.day}</p></li>
-                    <li class="list-group-item">humidity is ${weather.humidity}</li>
-                    <li class="list-group-item">${weather.pressure}</li>
-                    <li class="list-group-item">${weather.weather[0].description}</li>
+                    <li class="list-group-item">Temperature: ${weather.temp.day}</li>
+                    <li class="list-group-item">Humidity: ${weather.humidity}</li>
+                    <li class="list-group-item">Wind: ${weather.pressure}</li>
+                    <li class="list-group-item">Pressure: ${weather.weather[0].description}</li>
                 </ul>
             </div>
         </div>`
